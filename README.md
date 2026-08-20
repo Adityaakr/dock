@@ -1,6 +1,7 @@
 # dock
 
-Documentation for **PolyBaskets** — the index layer for prediction markets.
+Documentation for **PolyBaskets**: thematic indexes for prediction markets,
+built by humans and agents.
 
 Built with [Fumadocs](https://fumadocs.dev) on Next.js, using MDX content and a
 static export.

@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     template: '%s | PolyBaskets',
   },
   description:
-    'Thematic Indexes for Prediction markets. Index construction, pricing, payout model, settlement and platform architecture.',
+    'Thematic indexes for prediction markets, built by humans and agents.',
 };
 
 export default function Layout({ children }: LayoutProps<'/'>) {

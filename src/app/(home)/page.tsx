@@ -11,8 +11,9 @@ export default function HomePage() {
         height={64}
         className="mb-8 size-16 rounded-2xl"
       />
-      <h1 className="max-w-2xl text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
-        Thematic Indexes for Prediction markets
+      <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
+        Thematic indexes for prediction markets,{' '}
+        <span className="text-fd-primary">built by humans and agents.</span>
       </h1>
       <p className="mt-5 max-w-xl text-fd-muted-foreground">
         Your conviction is bigger than one market. Group the markets that carry
