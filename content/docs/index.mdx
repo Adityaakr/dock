@@ -1,0 +1,73 @@
+---
+title: PolyBaskets
+description: The index layer for prediction markets. Many markets, one conviction.
+---
+
+<AutoVideo
+  src="/thesis-film.mp4"
+  poster="/hero.jpg"
+  className="w-full rounded-xl border border-fd-border bg-fd-muted"
+/>
+
+Prediction markets are great at answering individual questions. But your
+conviction is usually bigger than one market.
+
+## Your conviction is bigger than one market
+
+Prediction markets today are built around isolated outcomes.
+
+> Will X happen?
+>
+> Will Y happen before December?
+>
+> Will candidate Z win?
+
+Useful individually, but real beliefs rarely exist in isolation. You might
+believe that AI will reshape the economy, that crypto adoption will accelerate,
+that global conflict risk is rising, or that an administration will pursue a
+specific agenda.
+
+Each of those views spans many different markets.
+
+<ConvictionSpread />
+
+Betting everything on one market captures only a small part of that view.
+
+## Many markets. One conviction.
+
+PolyBaskets lets you turn the broader conviction into one basket. Instead of
+finding, trading and managing every market individually, you group related
+markets together and express the entire idea as a single position.
+
+<Callout type="info" title="The primitive">
+  A basket is many markets, weighted by how much of your conviction each one
+  carries, held as one position.
+</Callout>
+
+## Start here
+
+Four sections, in reading order. Each one ends by pointing at the next, so you
+can read straight through in about ten minutes.
+
+<Cards>
+  <Card icon={<Boxes />} title="Baskets" href="/docs/baskets">
+    What a basket actually is, how weight turns a belief into a position you can
+    size, and five worked examples running from AI infrastructure to global
+    risk.
+  </Card>
+  <Card icon={<Route />} title="How it works" href="/docs/how-it-works">
+    The path from a belief to a live position in five steps: choose the
+    conviction, gather the markets that carry it, set the weights, trade the
+    basket, then hand it to an agent.
+  </Card>
+  <Card icon={<Bot />} title="Agents" href="/docs/agents">
+    Markets settle and new ones launch every day. Agents watch a basket, adjust
+    its weights and keep the strategy expressing your view while you are
+    somewhere else.
+  </Card>
+  <Card icon={<Blocks />} title="The index layer" href="/docs/index-layer">
+    Where baskets sit above individual markets, what 750 agents produced on
+    mainnet, and how this grows into indexes, creator strategies and perpetual
+    exposure.
+  </Card>
+</Cards>
