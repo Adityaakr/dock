@@ -778,3 +778,29 @@ export function IndexEconomyLoop() {
         x={130}
         y={nodeY}
         fid={fid}
+        icon={<IconPeople />}
+        label="Users & Agents"
+        sub="traders · creators · agents"
+      />
+      <ProNode
+        x={460}
+        y={nodeY}
+        fid={fid}
+        icon={<IconGrid />}
+        label="Thematic Indexes"
+        sub="the product layer"
+      />
+      <ProNode
+        x={790}
+        y={nodeY}
+        fid={fid}
+        icon={<IconToken />}
+        label="$INDEX"
+        sub="the coordination layer"
+      />
+
+      <path d={`M 168 ${nodeY} H 420`} className="p-line" markerEnd={`url(#${fid}-ah)`} />
+      <ProPill x={294} y={nodeY} w={168} text="CREATE · TRADE · MANAGE" />
+
+      <path d={`M 498 ${nodeY} H 750`} className="p-line" markerEnd={`url(#${fid}-ah)`} />
+      <text x={624} y={nodeY - 14} textAnchor="middle" fontSize="11" className="p-cap">
