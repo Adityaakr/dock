@@ -544,3 +544,29 @@ export function AgentLoop() {
         fid={fid}
         icon={<IconRadar />}
         label="Spot what changed"
+        sub="moved odds, new markets"
+      />
+      <ProNode
+        x={810}
+        y={nodeY}
+        fid={fid}
+        icon={<IconSliders />}
+        label="Adjust exposure"
+        sub="weights, entries, exits"
+      />
+
+      <path d={`M 188 ${nodeY} H 440`} className="p-line" markerEnd={`url(#${fid}-ah)`} />
+      <path d={`M 518 ${nodeY} H 770`} className="p-line" markerEnd={`url(#${fid}-ah)`} />
+
+      {/* continuous return */}
+      <path
+        d={`M 840 ${nodeY + 6} H 916 V 322 H 44 V ${nodeY + 10} H 112`}
+        className="p-dash"
+        markerEnd={`url(#${fid}-ah)`}
+      />
+      <text x={480} y={312} textAnchor="middle" fontSize="11" className="p-cap">
+        CONTINUOUS · 24/7
+      </text>
+    </ProFigure>
+  );
+}
