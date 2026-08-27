@@ -700,3 +700,29 @@ export function IndexLayerStack() {
             className={l.hot ? 'p-inv' : 'p-t'}
           >
             {l.t}
+          </text>
+          <text
+            x={x + w / 2}
+            y={y(i) + 45}
+            textAnchor="middle"
+            fontSize="11"
+            className={l.hot ? 'p-inv-sub' : 'p-sub'}
+          >
+            {l.s}
+          </text>
+          {i < STACK.length - 1 && (
+            <g className="p-line">
+              <path d={`M ${x + w / 2} ${y(i) + 62} V ${y(i) + 80}`} />
+              <path
+                d={`M ${x + w / 2 - 5} ${y(i) + 75.5} L ${x + w / 2} ${y(i) + 81.5} L ${x + w / 2 + 5} ${y(i) + 75.5}`}
+              />
+            </g>
+          )}
+        </g>
+      ))}
+
+      <text
+        x={60}
+        y={220}
+        fontSize="10.5"
+        className="p-cap"
