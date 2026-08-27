@@ -64,3 +64,25 @@ export function getMDXComponents(components?: MDXComponents) {
     Blocks,
     Workflow,
     LineChart,
+    Sparkles,
+    Shuffle,
+    RefreshCw,
+    Compass,
+    Radar,
+    Search,
+    Gauge,
+    Landmark,
+    CircleDollarSign,
+    Users,
+    Repeat,
+    TrendingUp,
+    AutoVideo,
+    ...components,
+  } satisfies MDXComponents;
+}
+
+export const useMDXComponents = getMDXComponents;
+
+declare global {
+  type MDXProvidedComponents = ReturnType<typeof getMDXComponents>;
+}
