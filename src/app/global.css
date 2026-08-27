@@ -64,3 +64,25 @@ html > body[data-scroll-locked] {
 
 /* ── professional diagrams ───────────────────────────────────────
    Clean protocol-map style: solid icon nodes, pill tags, uppercase
+   flow labels, dashed return flows. Same theme tokens, no filter. */
+.pb-pro {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.pb-pro text {
+  font-family: inherit;
+}
+
+.pb-pro .p-line {
+  fill: none;
+  stroke: var(--pb-accent);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+.pb-pro .p-dash {
+  fill: none;
+  stroke: var(--pb-accent);
+  stroke-width: 1.6;
+  stroke-dasharray: 5 5;
+  stroke-linecap: round;
