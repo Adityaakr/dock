@@ -128,3 +128,29 @@ function IconToken() {
   return (
     <text
       y={7.5}
+      textAnchor="middle"
+      fontSize="21"
+      fontWeight="700"
+      className="p-node-ic-fill"
+    >
+      $
+    </text>
+  );
+}
+
+function IconVault() {
+  return (
+    <g className="p-node-ic">
+      <path d="M -12 -3.5 L 0 -11.5 L 12 -3.5" />
+      <path d="M -8.5 0 v 8.5 M -2.8 0 v 8.5 M 2.8 0 v 8.5 M 8.5 0 v 8.5" />
+      <path d="M -12 11.5 h 24" />
+    </g>
+  );
+}
+
+function IconIdea() {
+  return (
+    <g>
+      <g className="p-node-ic">
+        <path d="M -7 -2 a 7 7 0 1 1 14 0 c 0 3 -2 4.5 -3.2 6.5 h -7.6 C -5 2.5 -7 1 -7 -2 z" />
+        <path d="M -3.4 8 h 6.8 M -2.4 11.2 h 4.8" />
