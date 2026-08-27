@@ -232,3 +232,29 @@ function ProNode({
           {label2}
         </text>
       ) : null}
+      {sub ? (
+        <text
+          x={x}
+          y={labelY + (label2 ? 34 : 17)}
+          textAnchor="middle"
+          fontSize="11"
+          className="p-sub"
+        >
+          {sub}
+        </text>
+      ) : null}
+    </g>
+  );
+}
+
+function ProPill({
+  x,
+  y,
+  w,
+  text,
+}: {
+  x: number;
+  y: number;
+  w: number;
+  text: string;
+}) {
