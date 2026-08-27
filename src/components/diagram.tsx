@@ -856,3 +856,29 @@ export function FutarchyFlow() {
       </text>
       <ProChipRow
         cx={480}
+        y={50}
+        chips={[
+          { t: 'LIQUIDITY INCENTIVES', w: 156 },
+          { t: 'TREASURY', w: 84 },
+        ]}
+      />
+      <ProChipRow
+        cx={480}
+        y={78}
+        chips={[
+          { t: 'INTEGRATIONS', w: 110 },
+          { t: 'FEE POLICY', w: 92 },
+        ]}
+      />
+      <path d={`M 480 106 V ${nodeY - 40}`} className="p-dash" markerEnd={`url(#${fid}-ah)`} />
+
+      {/* main flow */}
+      <ProNode
+        x={130}
+        y={nodeY}
+        fid={fid}
+        icon={<IconIdea />}
+        label="Proposals"
+        sub="incentives · treasury · growth"
+      />
+      <ProNode
