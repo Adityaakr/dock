@@ -960,3 +960,29 @@ export function InfraNetwork() {
       <ProNode
         x={450}
         y={nodeY}
+        fid={fid}
+        icon={<IconGrid />}
+        label="PolyBaskets Rails"
+        sub="baskets · liquidity · settlement"
+      />
+
+      {/* $INDEX secures the network */}
+      <text x={800} y={36} textAnchor="middle" fontSize="11" className="p-cap">
+        KEEPS THE SYSTEM FAIR
+      </text>
+      <ProChipRow
+        cx={800}
+        y={50}
+        chips={[
+          { t: 'STAKING', w: 74 },
+          { t: 'REWARDS', w: 82 },
+        ]}
+      />
+      <ProChipRow cx={800} y={78} chips={[{ t: 'SLASHING', w: 84 }]} />
+      <path d={`M 800 106 V ${nodeY - 40}`} className="p-dash" markerEnd={`url(#${fid}-ah)`} />
+
+      <ProNode
+        x={800}
+        y={nodeY}
+        fid={fid}
+        icon={<IconToken />}
