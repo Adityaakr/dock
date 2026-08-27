@@ -830,3 +830,29 @@ function IconChart() {
     <g>
       <g className="p-node-ic">
         <path d="M -11 -11 V 11 H 11" />
+        <path d="M -6 5 L -1 -1 L 3 2 L 8 -6" />
+      </g>
+      <circle cx={8} cy={-6} r={2} className="p-node-ic-fill" />
+    </g>
+  );
+}
+
+export function FutarchyFlow() {
+  const fid = 'pro-futarchy';
+  const nodeY = 220;
+
+  return (
+    <ProFigure
+      viewBox="0 0 960 390"
+      minWidth={760}
+      caption="Proposals become markets. Participants price the outcomes, the higher-value outcome executes, and measured results sharpen the next decision."
+      alt="Futarchy governance: proposals about incentives, treasury and integrations flow into futarchy markets where $INDEX holders trade; the winning outcome executes as an allocation of capital, incentives and attention, and measured outcomes feed back into new proposals."
+    >
+      <ProDefs id={fid} />
+
+      {/* what gets decided */}
+      <text x={480} y={36} textAnchor="middle" fontSize="11" className="p-cap">
+        WHAT GETS DECIDED
+      </text>
+      <ProChipRow
+        cx={480}
