@@ -622,3 +622,29 @@ export function ParticipantModes() {
             rx={10}
             className={m.hot ? 'p-box-hot' : 'p-box'}
           />
+          <circle
+            cx={x(i) + 42}
+            cy={72}
+            r={17}
+            className="p-node"
+            filter={`url(#${fid}-sh)`}
+          />
+          <g transform={`translate(${x(i) + 42} ${72}) scale(0.66)`}>{m.icon}</g>
+          <text x={x(i) + 70} y={78} fontSize="14.5" className="p-t">
+            {m.t}
+          </text>
+          <path d={`M ${x(i) + 24} 102 H ${x(i) + w - 24}`} className="p-rule" />
+          <text x={x(i) + 24} y={130} fontSize="12.5" className="p-sub">
+            {m.a}
+          </text>
+          <text x={x(i) + 24} y={150} fontSize="12.5" className="p-sub">
+            {m.b}
+          </text>
+          <text x={x(i) + 24} y={170} fontSize="12.5" className="p-sub">
+            {m.c}
+          </text>
+        </g>
+      ))}
+
+      <text x={20} y={252} fontSize="12" className="p-sub">
+        humans create ideas · agents operate them · others discover and trade them
