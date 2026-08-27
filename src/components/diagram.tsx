@@ -1064,3 +1064,29 @@ export function StakingFlow() {
         y={nodeY}
         fid={fid}
         icon={<IconVault />}
+        label="Liquidity Vault"
+        sub="agents allocate the capital"
+      />
+      <ProNode
+        x={820}
+        y={nodeY}
+        fid={fid}
+        icon={<IconGrid />}
+        label="Prediction Markets"
+        sub="depth · redemption · hedging"
+      />
+
+      <path d={`M 168 ${nodeY} H 440`} className="p-line" markerEnd={`url(#${fid}-ah)`} />
+      <ProPill x={304} y={nodeY} w={112} text="DEPOSIT USDC" />
+
+      <path d={`M 518 ${nodeY} H 780`} className="p-line" markerEnd={`url(#${fid}-ah)`} />
+      <text x={649} y={nodeY - 14} textAnchor="middle" fontSize="11" className="p-cap">
+        DEPLOYED BY AGENTS
+      </text>
+
+      {/* returns routed around the labels */}
+      <path
+        d={`M 850 ${nodeY + 6} H 916 V 356 H 44 V ${nodeY + 10} H 92`}
+        className="p-dash"
+        markerEnd={`url(#${fid}-ah)`}
+      />
