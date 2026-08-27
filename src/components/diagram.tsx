@@ -908,3 +908,29 @@ export function FutarchyFlow() {
 
       {/* results feed the next decision */}
       <path
+        d={`M 850 ${nodeY + 6} H 916 V 356 H 44 V ${nodeY + 10} H 92`}
+        className="p-dash"
+        markerEnd={`url(#${fid}-ah)`}
+      />
+      <text x={480} y={346} textAnchor="middle" fontSize="11" className="p-cap">
+        OUTCOMES MEASURED · MARKETS LEARN
+      </text>
+    </ProFigure>
+  );
+}
+
+/* ── PolyBaskets as infrastructure ──────────────────────────────── */
+
+const INFRA_PLATFORMS = ['Trading apps', 'Communities & DAOs', 'Agent platforms'];
+
+export function InfraNetwork() {
+  const fid = 'pro-infra';
+  const nodeY = 170;
+  const by = (i: number) => 80 + i * 68;
+
+  return (
+    <ProFigure
+      viewBox="0 0 960 360"
+      minWidth={760}
+      caption="Other platforms plug conviction-based indexes into their own products. PolyBaskets provides the rails; $INDEX keeps every operator aligned."
+      alt="External platforms such as trading apps, communities and agent platforms integrate through the PolyBaskets rails for baskets, liquidity and settlement; operators stake $INDEX, which powers staking, rewards and slashing to reward honest operation and keep the network fair."
