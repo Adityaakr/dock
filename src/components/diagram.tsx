@@ -102,3 +102,29 @@ function IconBot() {
     <g>
       <g className="p-node-ic">
         <rect x={-9.5} y={-6} width={19} height={13.5} rx={3.5} />
+        <path d="M 0 -6 V -10.5" />
+      </g>
+      <g className="p-node-ic-fill">
+        <circle cx={-4.2} cy={0.8} r={1.8} />
+        <circle cx={4.2} cy={0.8} r={1.8} />
+        <circle cx={0} cy={-12} r={1.8} />
+      </g>
+    </g>
+  );
+}
+
+function IconGrid() {
+  return (
+    <g className="p-node-ic">
+      <rect x={-11} y={-11} width={9.5} height={9.5} rx={2} />
+      <rect x={1.5} y={-11} width={9.5} height={9.5} rx={2} />
+      <rect x={-11} y={1.5} width={9.5} height={9.5} rx={2} />
+      <rect x={1.5} y={1.5} width={9.5} height={9.5} rx={2} />
+    </g>
+  );
+}
+
+function IconToken() {
+  return (
+    <text
+      y={7.5}
