@@ -934,3 +934,29 @@ export function InfraNetwork() {
       minWidth={760}
       caption="Other platforms plug conviction-based indexes into their own products. PolyBaskets provides the rails; $INDEX keeps every operator aligned."
       alt="External platforms such as trading apps, communities and agent platforms integrate through the PolyBaskets rails for baskets, liquidity and settlement; operators stake $INDEX, which powers staking, rewards and slashing to reward honest operation and keep the network fair."
+    >
+      <ProDefs id={fid} />
+
+      {/* external platforms */}
+      <text x={125} y={56} textAnchor="middle" fontSize="11" className="p-cap">
+        EXTERNAL PLATFORMS
+      </text>
+      {INFRA_PLATFORMS.map((p, i) => (
+        <g key={p}>
+          <rect x={20} y={by(i)} width={210} height={42} rx={8} className="p-box" />
+          <text x={125} y={by(i) + 26} textAnchor="middle" fontSize="12.5" className="p-t">
+            {p}
+          </text>
+          <path
+            d={`M 236 ${by(i) + 21} C 320 ${by(i) + 21}, 336 ${nodeY}, 408 ${nodeY}`}
+            className="p-line"
+            markerEnd={`url(#${fid}-ah)`}
+          />
+        </g>
+      ))}
+      <ProPill x={314} y={nodeY - 62} w={92} text="INTEGRATE" />
+
+      {/* the rails */}
+      <ProNode
+        x={450}
+        y={nodeY}
