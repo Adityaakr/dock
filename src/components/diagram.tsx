@@ -284,3 +284,29 @@ function ProChipRow({
       {chips.map((c) => {
         const cxx = x;
         x += c.w + 10;
+        return (
+          <g key={c.t}>
+            <rect x={cxx} y={y} width={c.w} height={22} rx={5} className="p-pill" />
+            <text x={cxx + c.w / 2} y={y + 14.5} textAnchor="middle" className="p-pill-t">
+              {c.t}
+            </text>
+          </g>
+        );
+      })}
+    </g>
+  );
+}
+
+/* ── One conviction, many markets ───────────────────────────────── */
+
+const SPREAD = [
+  'AI adoption',
+  'Semiconductor demand',
+  'Data-center expansion',
+  'Energy demand',
+  'Regulation',
+  'Compute infrastructure',
+];
+
+export function ConvictionSpread() {
+  const fid = 'pro-spread';
