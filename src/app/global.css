@@ -130,3 +130,25 @@ html > body[data-scroll-locked] {
 }
 .pb-pro .p-cap-2 {
   fill: var(--pb-accent-2);
+  font-weight: 650;
+  letter-spacing: 0.09em;
+}
+.pb-pro .p-t {
+  fill: var(--color-fd-foreground);
+  font-weight: 550;
+}
+.pb-pro .p-sub {
+  fill: var(--color-fd-muted-foreground);
+}
+.pb-pro .p-inv {
+  fill: var(--color-fd-primary-foreground);
+}
+.pb-pro .p-inv-sub {
+  fill: var(--color-fd-primary-foreground);
+  opacity: 0.78;
+}
+.pb-pro .p-box-2 {
+  fill: var(--color-fd-card);
+  stroke: var(--pb-accent-2);
+  stroke-width: 1.4;
+}
