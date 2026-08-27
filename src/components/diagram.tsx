@@ -388,3 +388,29 @@ export function BasketWeights() {
 
       {BASKET.map((b, i) => (
         <g key={b.name}>
+          <text x={24} y={cy(i) + 4.5} fontSize="13.5" className="p-t">
+            {b.name}
+          </text>
+          <rect
+            x={bx}
+            y={cy(i) - 13}
+            width={(b.w / 30) * full}
+            height={26}
+            rx={6}
+            className="p-node"
+            filter={`url(#${fid}-sh)`}
+          />
+          <text
+            x={bx + (b.w / 30) * full + 14}
+            y={cy(i) + 4.5}
+            fontSize="12"
+            className="p-cap"
+          >
+            {b.w}%
+          </text>
+        </g>
+      ))}
+
+      <path d="M 24 290 H 936" className="p-rule" />
+      <text x={24} y={316} fontSize="12" className="p-sub">
+        one basket
