@@ -1012,3 +1012,29 @@ export function InfraNetwork() {
 
 export function StakingFlow() {
   const fid = 'pro-stake';
+  const nodeY = 220;
+
+  return (
+    <ProFigure
+      viewBox="0 0 960 420"
+      minWidth={760}
+      caption="The market liquidity vault: LPs deposit USDC, agents deploy it across the markets, and returns flow from real trading activity plus $INDEX incentives."
+      alt="Coming soon: liquidity providers deposit USDC into the market liquidity vault; autonomous agents deploy that capital across prediction markets for depth, hedging and execution; trading spreads, index fees, maker rebates and $INDEX incentives feed the vault, which routes returns back to liquidity providers at a modeled 10 to 18 percent annualized target."
+    >
+      <ProDefs id={fid} />
+
+      <rect x={824} y={20} width={116} height={24} rx={12} className="p-box-2" />
+      <text x={882} y={36} textAnchor="middle" fontSize="10.5" className="p-cap-2">
+        COMING SOON
+      </text>
+
+      {/* return sources feeding the vault */}
+      <text x={480} y={36} textAnchor="middle" fontSize="11" className="p-cap">
+        RETURN SOURCES
+      </text>
+      <ProChipRow
+        cx={480}
+        y={50}
+        chips={[
+          { t: 'TRADING SPREADS', w: 128 },
+          { t: 'INDEX FEES', w: 92 },
