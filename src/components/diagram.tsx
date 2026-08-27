@@ -752,3 +752,29 @@ export function IndexEconomyLoop() {
 
       {/* coordination chips above $INDEX */}
       <text x={790} y={36} textAnchor="middle" fontSize="11" className="p-cap">
+        COORDINATED THROUGH $INDEX
+      </text>
+      <ProChipRow
+        cx={790}
+        y={50}
+        chips={[
+          { t: 'VAULT / STAKING', w: 120 },
+          { t: 'LIQUIDITY', w: 84 },
+        ]}
+      />
+      <ProChipRow
+        cx={790}
+        y={78}
+        chips={[
+          { t: 'GOVERNANCE', w: 100 },
+          { t: 'AGENT ARENA', w: 102 },
+        ]}
+      />
+      <ProChipRow cx={790} y={106} chips={[{ t: 'CURATED STRATEGIES', w: 150 }]} />
+      <path d={`M 790 134 V ${nodeY - 40}`} className="p-dash" markerEnd={`url(#${fid}-ah)`} />
+
+      {/* main flow */}
+      <ProNode
+        x={130}
+        y={nodeY}
+        fid={fid}
