@@ -310,3 +310,29 @@ const SPREAD = [
 
 export function ConvictionSpread() {
   const fid = 'pro-spread';
+  const rowY = (i: number) => 44 + i * 52;
+
+  return (
+    <ProFigure
+      viewBox="0 0 960 372"
+      minWidth={720}
+      caption="One belief touches many markets. Betting it on a single question captures only a sliver of what you actually think."
+      alt="A single conviction on the left fanning out into six separate prediction markets on the right."
+    >
+      <ProDefs id={fid} />
+
+      <ProNode
+        x={150}
+        y={168}
+        fid={fid}
+        icon={<IconIdea />}
+        label="“AI will reshape"
+        label2="the economy”"
+        sub="one conviction"
+      />
+
+      <text x={715} y={30} textAnchor="middle" fontSize="11" className="p-cap">
+        MANY MARKETS
+      </text>
+
+      {SPREAD.map((m, i) => (
