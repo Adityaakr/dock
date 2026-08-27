@@ -882,3 +882,29 @@ export function FutarchyFlow() {
         sub="incentives · treasury · growth"
       />
       <ProNode
+        x={480}
+        y={nodeY}
+        fid={fid}
+        icon={<IconChart />}
+        label="Futarchy Markets"
+        sub="priced by participants"
+      />
+      <ProNode
+        x={820}
+        y={nodeY}
+        fid={fid}
+        icon={<IconSliders />}
+        label="Allocation"
+        sub="capital · incentives · attention"
+      />
+
+      <path d={`M 168 ${nodeY} H 440`} className="p-line" markerEnd={`url(#${fid}-ah)`} />
+      <ProPill x={304} y={nodeY} w={152} text="$INDEX HOLDERS TRADE" />
+
+      <path d={`M 518 ${nodeY} H 780`} className="p-line" markerEnd={`url(#${fid}-ah)`} />
+      <text x={649} y={nodeY - 14} textAnchor="middle" fontSize="11" className="p-cap">
+        WINNING OUTCOME EXECUTES
+      </text>
+
+      {/* results feed the next decision */}
+      <path
