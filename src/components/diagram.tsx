@@ -518,3 +518,29 @@ export function AgentLoop() {
       viewBox="0 0 960 350"
       minWidth={760}
       caption="Humans define the conviction. Agents keep it operating as markets move, settle and launch."
+      alt="Agents monitor markets, spot what changed and adjust exposure in a continuous loop, guided by the basket objective."
+    >
+      <ProDefs id={fid} />
+
+      {/* the objective, guiding the loop */}
+      <rect x={365} y={24} width={230} height={38} rx={10} className="p-box-2" />
+      <text x={480} y={48} textAnchor="middle" fontSize="11" className="p-cap-2">
+        THE BASKET OBJECTIVE
+      </text>
+      <path d="M 480 66 V 160" className="p-dash-2" markerEnd={`url(#${fid}-ah2)`} />
+
+      {/* the loop */}
+      <ProNode
+        x={150}
+        y={nodeY}
+        fid={fid}
+        icon={<IconEye />}
+        label="Monitor markets"
+        sub="prices, resolutions, launches"
+      />
+      <ProNode
+        x={480}
+        y={nodeY}
+        fid={fid}
+        icon={<IconRadar />}
+        label="Spot what changed"
