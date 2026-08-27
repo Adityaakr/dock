@@ -20,3 +20,25 @@ import {
   Bot,
   Boxes,
   CircleDollarSign,
+  Compass,
+  Gauge,
+  Landmark,
+  LineChart,
+  Radar,
+  RefreshCw,
+  Repeat,
+  Route,
+  Search,
+  Shuffle,
+  Sparkles,
+  TrendingUp,
+  Users,
+  Workflow,
+} from 'lucide-react';
+import { AutoVideo } from '@/components/auto-video';
+import type { MDXComponents } from 'mdx/types';
+
+export function getMDXComponents(components?: MDXComponents) {
+  return {
+    ...defaultMdxComponents,
+    Accordion,
