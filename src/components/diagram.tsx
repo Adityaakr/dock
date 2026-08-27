@@ -466,3 +466,29 @@ export function BasketFlow() {
             textAnchor="middle"
             fontSize="14"
             className={s.hot ? 'p-inv' : 'p-t'}
+          >
+            {s.a}
+          </text>
+          <text
+            x={x(i) + w / 2}
+            y={130}
+            textAnchor="middle"
+            fontSize="11.5"
+            className={s.hot ? 'p-inv-sub' : 'p-sub'}
+          >
+            {s.b}
+          </text>
+          <text
+            x={x(i) + w / 2}
+            y={146}
+            textAnchor="middle"
+            fontSize="11.5"
+            className={s.hot ? 'p-inv-sub' : 'p-sub'}
+          >
+            {s.c}
+          </text>
+          {i < STEPS.length - 1 && (
+            <path
+              d={`M ${x(i) + w + 4} 120 H ${x(i + 1) - 7}`}
+              className="p-line"
+              markerEnd={`url(#${fid}-ah)`}
