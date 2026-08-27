@@ -440,3 +440,29 @@ export function BasketFlow() {
   return (
     <ProFigure
       viewBox="0 0 960 260"
+      minWidth={760}
+      caption="Pick a conviction, gather the markets that carry it, weight them, and hold one position. Agents keep it current after that."
+      alt="Five steps: conviction, find markets, build the basket, trade it, and let agents manage it continuously."
+    >
+      <ProDefs id={fid} />
+
+      {STEPS.map((s, i) => (
+        <g key={s.n}>
+          <text x={x(i) + w / 2} y={56} textAnchor="middle" fontSize="11" className="p-cap">
+            {s.n}
+          </text>
+          <rect
+            x={x(i)}
+            y={70}
+            width={w}
+            height={100}
+            rx={10}
+            className={s.hot ? 'p-node' : 'p-box'}
+            filter={s.hot ? `url(#${fid}-sh)` : undefined}
+          />
+          <text
+            x={x(i) + w / 2}
+            y={108}
+            textAnchor="middle"
+            fontSize="14"
+            className={s.hot ? 'p-inv' : 'p-t'}
