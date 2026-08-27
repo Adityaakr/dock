@@ -362,3 +362,29 @@ const BASKET = [
   { name: 'AI Adoption', w: 30 },
   { name: 'Semiconductors', w: 25 },
   { name: 'Data Centers', w: 20 },
+  { name: 'Energy Demand', w: 15 },
+  { name: 'AI Regulation', w: 10 },
+];
+
+export function BasketWeights() {
+  const fid = 'pro-weights';
+  const bx = 300;
+  const full = 500; // width of the largest weight
+  const cy = (i: number) => 84 + i * 44;
+
+  return (
+    <ProFigure
+      viewBox="0 0 960 330"
+      minWidth={680}
+      caption="Weight is how much of your conviction rides on each market. The same markets, weighted differently, are a different view."
+      alt="The AI Boom basket: five markets weighted 30, 25, 20, 15 and 10 percent, summing to 100 percent."
+    >
+      <ProDefs id={fid} />
+
+      <text x={24} y={36} fontSize="15" className="p-t">
+        AI Boom Basket
+      </text>
+      <path d="M 24 52 H 936" className="p-rule" />
+
+      {BASKET.map((b, i) => (
+        <g key={b.name}>
