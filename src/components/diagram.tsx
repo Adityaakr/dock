@@ -50,3 +50,29 @@ function ProDefs({ id }: { id: string }) {
         id={`${id}-ah`}
         viewBox="0 0 10 10"
         refX="8"
+        refY="5"
+        markerWidth="7"
+        markerHeight="7"
+        orient="auto-start-reverse"
+      >
+        <path d="M 0 0 L 10 5 L 0 10 z" className="p-arrow" />
+      </marker>
+      <marker
+        id={`${id}-ah2`}
+        viewBox="0 0 10 10"
+        refX="8"
+        refY="5"
+        markerWidth="7"
+        markerHeight="7"
+        orient="auto-start-reverse"
+      >
+        <path d="M 0 0 L 10 5 L 0 10 z" className="p-arrow-2" />
+      </marker>
+      <filter id={`${id}-sh`} x="-40%" y="-40%" width="180%" height="180%">
+        <feDropShadow dx="0" dy="2.5" stdDeviation="3.5" floodOpacity="0.22" />
+      </filter>
+    </defs>
+  );
+}
+
+/* Icon glyphs, drawn around (0,0) inside a node circle. */
