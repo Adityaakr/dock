@@ -8,69 +8,15 @@ import {
   BasketFlow,
   BasketWeights,
   ConvictionSpread,
+  FutarchyFlow,
+  IndexEconomyLoop,
+  InfraNetwork,
   IndexLayerStack,
   ParticipantModes,
+  StakingFlow,
 } from '@/components/diagram';
 import {
   Blocks,
   Bot,
   Boxes,
-  Compass,
-  Gauge,
-  LineChart,
-  Radar,
-  RefreshCw,
-  Repeat,
-  Route,
-  Search,
-  Shuffle,
-  Sparkles,
-  TrendingUp,
-  Users,
-  Workflow,
-} from 'lucide-react';
-import { AutoVideo } from '@/components/auto-video';
-import type { MDXComponents } from 'mdx/types';
-
-export function getMDXComponents(components?: MDXComponents) {
-  return {
-    ...defaultMdxComponents,
-    Accordion,
-    Accordions,
-    Step,
-    Steps,
-    Tab,
-    Tabs,
-    Banner,
-    ConvictionSpread,
-    BasketWeights,
-    BasketFlow,
-    AgentLoop,
-    ParticipantModes,
-    IndexLayerStack,
-    Boxes,
-    Route,
-    Bot,
-    Blocks,
-    Workflow,
-    LineChart,
-    Sparkles,
-    Shuffle,
-    RefreshCw,
-    Compass,
-    Radar,
-    Search,
-    Gauge,
-    Users,
-    Repeat,
-    TrendingUp,
-    AutoVideo,
-    ...components,
-  } satisfies MDXComponents;
-}
-
-export const useMDXComponents = getMDXComponents;
-
-declare global {
-  type MDXProvidedComponents = ReturnType<typeof getMDXComponents>;
-}
+  CircleDollarSign,
