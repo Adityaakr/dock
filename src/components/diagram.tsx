@@ -674,3 +674,29 @@ export function IndexLayerStack() {
 
   return (
     <ProFigure
+      viewBox="0 0 760 450"
+      minWidth={600}
+      caption="Individual markets stay the primitive. PolyBaskets is the layer that turns them into something you can hold as a single view."
+      alt="A stack: individual prediction markets at the base, PolyBaskets above them, then thematic indexes, agent strategies, and new financial products."
+    >
+      <ProDefs id={fid} />
+
+      {STACK.map((l, i) => (
+        <g key={l.t}>
+          <rect
+            x={x}
+            y={y(i)}
+            width={w}
+            height={58}
+            rx={10}
+            className={l.hot ? 'p-node' : 'p-box'}
+            filter={l.hot ? `url(#${fid}-sh)` : undefined}
+          />
+          <text
+            x={x + w / 2}
+            y={y(i) + 26}
+            textAnchor="middle"
+            fontSize={l.hot ? '15' : '14'}
+            className={l.hot ? 'p-inv' : 'p-t'}
+          >
+            {l.t}
