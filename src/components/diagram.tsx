@@ -596,3 +596,29 @@ const MODES = [
     b: 'construct baskets, and',
     c: 'operate the strategy.',
   },
+];
+
+export function ParticipantModes() {
+  const fid = 'pro-modes';
+  const w = 296;
+  const x = (i: number) => 20 + i * 312;
+
+  return (
+    <ProFigure
+      viewBox="0 0 960 300"
+      minWidth={720}
+      caption="Not a replacement for traders. Humans create ideas, agents operate them, and other people can find and trade the result."
+      alt="Three ways a basket gets built: human-built, agent-assisted, and agent-built."
+    >
+      <ProDefs id={fid} />
+
+      {MODES.map((m, i) => (
+        <g key={m.t}>
+          <rect
+            x={x(i)}
+            y={36}
+            width={w}
+            height={170}
+            rx={10}
+            className={m.hot ? 'p-box-hot' : 'p-box'}
+          />
