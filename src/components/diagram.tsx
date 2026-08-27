@@ -804,3 +804,29 @@ export function IndexEconomyLoop() {
 
       <path d={`M 498 ${nodeY} H 750`} className="p-line" markerEnd={`url(#${fid}-ah)`} />
       <text x={624} y={nodeY - 14} textAnchor="middle" fontSize="11" className="p-cap">
+        ACTIVITY + FEES
+      </text>
+
+      {/* rewards return, routed around the labels */}
+      <path
+        d={`M 820 ${nodeY + 6} H 916 V 352 H 44 V ${nodeY + 10} H 92`}
+        className="p-dash"
+        markerEnd={`url(#${fid}-ah)`}
+      />
+      <text x={480} y={342} textAnchor="middle" fontSize="11" className="p-cap">
+        REWARDS + INCENTIVES
+      </text>
+      <text x={480} y={374} textAnchor="middle" fontSize="10.5" className="p-sub">
+        routed back to the participants who created the value
+      </text>
+    </ProFigure>
+  );
+}
+
+/* ── Governed through futarchy ──────────────────────────────────── */
+
+function IconChart() {
+  return (
+    <g>
+      <g className="p-node-ic">
+        <path d="M -11 -11 V 11 H 11" />
