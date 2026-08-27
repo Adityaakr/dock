@@ -648,3 +648,29 @@ export function ParticipantModes() {
 
       <text x={20} y={252} fontSize="12" className="p-sub">
         humans create ideas · agents operate them · others discover and trade them
+      </text>
+      <text x={20} y={276} fontSize="12" className="p-sub" opacity={0.7}>
+        the interesting part is what happens when the three start interacting
+      </text>
+    </ProFigure>
+  );
+}
+
+/* ── The index layer ────────────────────────────────────────────── */
+
+const STACK = [
+  { t: 'Individual prediction markets', s: 'the underlying building blocks' },
+  { t: 'PolyBaskets', s: 'grouping markets into one conviction', hot: true },
+  { t: 'Thematic indexes', s: 'standardised, tradeable themes' },
+  { t: 'Agent strategies', s: 'continuously operated exposure' },
+  { t: 'New financial products', s: 'structured, perpetual, composable' },
+];
+
+export function IndexLayerStack() {
+  const fid = 'pro-stack';
+  const w = 460;
+  const x = 150;
+  const y = (i: number) => 24 + i * 86;
+
+  return (
+    <ProFigure
