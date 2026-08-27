@@ -108,3 +108,25 @@ html > body[data-scroll-locked] {
 .pb-pro .p-node-ic-fill {
   fill: var(--color-fd-primary-foreground);
   stroke: none;
+}
+.pb-pro .p-pill {
+  fill: var(--color-fd-primary);
+}
+.pb-pro .p-pill-t {
+  fill: var(--color-fd-primary-foreground);
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.07em;
+}
+.pb-pro .p-box {
+  fill: var(--color-fd-card);
+  stroke: var(--pb-accent);
+  stroke-width: 1.4;
+}
+.pb-pro .p-cap {
+  fill: var(--pb-accent);
+  font-weight: 650;
+  letter-spacing: 0.09em;
+}
+.pb-pro .p-cap-2 {
+  fill: var(--pb-accent-2);
