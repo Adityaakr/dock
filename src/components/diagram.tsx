@@ -570,3 +570,29 @@ export function AgentLoop() {
     </ProFigure>
   );
 }
+
+/* ── Who builds the basket ──────────────────────────────────────── */
+
+const MODES = [
+  {
+    t: 'Human-built',
+    icon: <IconPerson />,
+    a: 'A trader writes the thesis,',
+    b: 'picks the markets, and',
+    c: 'controls the basket.',
+  },
+  {
+    t: 'Agent-assisted',
+    icon: <IconPeople />,
+    a: 'A trader defines the',
+    b: 'strategy while agents',
+    c: 'monitor and manage it.',
+    hot: true,
+  },
+  {
+    t: 'Agent-built',
+    icon: <IconBot />,
+    a: 'Agents discover markets,',
+    b: 'construct baskets, and',
+    c: 'operate the strategy.',
+  },
