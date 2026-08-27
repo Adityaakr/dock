@@ -492,3 +492,29 @@ export function BasketFlow() {
               d={`M ${x(i) + w + 4} 120 H ${x(i + 1) - 7}`}
               className="p-line"
               markerEnd={`url(#${fid}-ah)`}
+            />
+          )}
+        </g>
+      ))}
+
+      <text x={20} y={216} fontSize="12" className="p-sub">
+        your conviction does not have to stop when you close your laptop
+      </text>
+      <text x={20} y={240} fontSize="11" className="p-cap">
+        CONVICTION, RUNNING 24/7
+      </text>
+    </ProFigure>
+  );
+}
+
+/* ── The agent loop ─────────────────────────────────────────────── */
+
+export function AgentLoop() {
+  const fid = 'pro-agent';
+  const nodeY = 200;
+
+  return (
+    <ProFigure
+      viewBox="0 0 960 350"
+      minWidth={760}
+      caption="Humans define the conviction. Agents keep it operating as markets move, settle and launch."
