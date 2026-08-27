@@ -1038,3 +1038,29 @@ export function StakingFlow() {
         chips={[
           { t: 'TRADING SPREADS', w: 128 },
           { t: 'INDEX FEES', w: 92 },
+        ]}
+      />
+      <ProChipRow
+        cx={480}
+        y={78}
+        chips={[
+          { t: 'MAKER REBATES', w: 118 },
+          { t: '$INDEX INCENTIVES', w: 132 },
+        ]}
+      />
+      <path d={`M 480 106 V ${nodeY - 40}`} className="p-dash" markerEnd={`url(#${fid}-ah)`} />
+
+      {/* main flow */}
+      <ProNode
+        x={130}
+        y={nodeY}
+        fid={fid}
+        icon={<IconPeople />}
+        label="Liquidity Providers"
+        sub="deposit USDC"
+      />
+      <ProNode
+        x={480}
+        y={nodeY}
+        fid={fid}
+        icon={<IconVault />}
