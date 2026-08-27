@@ -414,3 +414,29 @@ export function BasketWeights() {
       <path d="M 24 290 H 936" className="p-rule" />
       <text x={24} y={316} fontSize="12" className="p-sub">
         one basket
+      </text>
+      <text x={bx} y={316} fontSize="12" className="p-cap-2">
+        100%
+      </text>
+    </ProFigure>
+  );
+}
+
+/* ── The flow ───────────────────────────────────────────────────── */
+
+const STEPS = [
+  { n: '1', a: 'Conviction', b: 'the idea you', c: 'want exposure to' },
+  { n: '2', a: 'Find markets', b: 'related markets', c: 'across categories' },
+  { n: '3', a: 'Build', b: 'select and', c: 'weight them' },
+  { n: '4', a: 'Trade', b: 'one position,', c: 'many outcomes' },
+  { n: '5', a: 'Agents run it', b: 'monitor and', c: 'adjust, always', hot: true },
+];
+
+export function BasketFlow() {
+  const fid = 'pro-flow';
+  const w = 160;
+  const x = (i: number) => 20 + i * 190;
+
+  return (
+    <ProFigure
+      viewBox="0 0 960 260"
