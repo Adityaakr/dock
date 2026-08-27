@@ -154,3 +154,29 @@ function IconIdea() {
       <g className="p-node-ic">
         <path d="M -7 -2 a 7 7 0 1 1 14 0 c 0 3 -2 4.5 -3.2 6.5 h -7.6 C -5 2.5 -7 1 -7 -2 z" />
         <path d="M -3.4 8 h 6.8 M -2.4 11.2 h 4.8" />
+      </g>
+    </g>
+  );
+}
+
+function IconEye() {
+  return (
+    <g>
+      <path
+        d="M -12 0 C -7 -7.5 7 -7.5 12 0 C 7 7.5 -7 7.5 -12 0 z"
+        className="p-node-ic"
+      />
+      <circle cx={0} cy={0} r={3.4} className="p-node-ic-fill" />
+    </g>
+  );
+}
+
+function IconRadar() {
+  return (
+    <g>
+      <g className="p-node-ic">
+        <circle cx={0} cy={0} r={11} />
+        <circle cx={0} cy={0} r={5.5} />
+        <path d="M 0 0 L 8 -8" />
+      </g>
+      <circle cx={8} cy={-8} r={2} className="p-node-ic-fill" />
