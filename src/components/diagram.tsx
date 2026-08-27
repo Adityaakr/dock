@@ -726,3 +726,29 @@ export function IndexLayerStack() {
         y={220}
         fontSize="10.5"
         className="p-cap"
+        textAnchor="middle"
+        transform="rotate(-90 60 220)"
+      >
+        HIGHER-LEVEL PRODUCTS
+      </text>
+    </ProFigure>
+  );
+}
+
+/* ── The $INDEX economy loop ────────────────────────────────────── */
+
+export function IndexEconomyLoop() {
+  const fid = 'pro-econ';
+  const nodeY = 210;
+
+  return (
+    <ProFigure
+      viewBox="0 0 960 400"
+      minWidth={760}
+      caption="The loop the economics are built around. Usage generates activity and fees, $INDEX routes rewards back to participants, and better indexes bring more usage."
+      alt="Users and agents create, trade and manage thematic indexes; activity and fees flow into $INDEX, which coordinates the vault and staking, liquidity, governance, Agent Arena and curated strategies, and routes rewards and incentives back to participants."
+    >
+      <ProDefs id={fid} />
+
+      {/* coordination chips above $INDEX */}
+      <text x={790} y={36} textAnchor="middle" fontSize="11" className="p-cap">
