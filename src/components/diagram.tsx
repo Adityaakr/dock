@@ -1090,3 +1090,12 @@ export function StakingFlow() {
         className="p-dash"
         markerEnd={`url(#${fid}-ah)`}
       />
+      <text x={480} y={346} textAnchor="middle" fontSize="11" className="p-cap">
+        RETURNS
+      </text>
+      <text x={480} y={392} textAnchor="middle" fontSize="11" className="p-cap-2">
+        TARGET 10–18% ANNUALIZED · FROM REAL MARKET ACTIVITY
+      </text>
+    </ProFigure>
+  );
+}
