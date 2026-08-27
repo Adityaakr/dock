@@ -42,3 +42,25 @@
   --color-fd-popover: #101a15;
   --color-fd-card: #121e18;
   --color-fd-card-foreground: #edf2ec;
+  --color-fd-popover-foreground: #edf2ec;
+  --color-fd-border: #22322a;
+  --color-fd-primary: #a8c9ad;
+  --color-fd-primary-foreground: #0d1712;
+  --color-fd-secondary: #16241d;
+  --color-fd-secondary-foreground: #edf2ec;
+  --color-fd-accent: #16241d;
+  --color-fd-accent-foreground: #edf2ec;
+  --color-fd-ring: #8fb795;
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+html > body[data-scroll-locked] {
+  margin-right: 0px !important;
+  --removed-body-scroll-bar-size: 0px !important;
+}
+
+/* ── professional diagrams ───────────────────────────────────────
+   Clean protocol-map style: solid icon nodes, pill tags, uppercase
