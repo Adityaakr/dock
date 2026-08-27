@@ -986,3 +986,29 @@ export function InfraNetwork() {
         y={nodeY}
         fid={fid}
         icon={<IconToken />}
+        label="$INDEX"
+        sub="secures the network"
+      />
+
+      <path d={`M 488 ${nodeY} H 760`} className="p-line" markerEnd={`url(#${fid}-ah)`} />
+      <text x={624} y={nodeY - 14} textAnchor="middle" fontSize="11" className="p-cap">
+        OPERATORS STAKE $INDEX
+      </text>
+
+      {/* rewards and slashing feed back to the platforms */}
+      <path
+        d={`M 830 ${nodeY + 6} H 916 V 330 H 125 V ${by(2) + 52}`}
+        className="p-dash"
+        markerEnd={`url(#${fid}-ah)`}
+      />
+      <text x={520} y={320} textAnchor="middle" fontSize="11" className="p-cap">
+        REWARDS HONEST OPERATION · SLASHES ABUSE
+      </text>
+    </ProFigure>
+  );
+}
+
+/* ── Staking flow ───────────────────────────────────────────────── */
+
+export function StakingFlow() {
+  const fid = 'pro-stake';
