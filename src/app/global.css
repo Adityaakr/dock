@@ -20,3 +20,25 @@
   --color-fd-popover: #fdfbf5;
   --color-fd-card: #fdfbf5;
   --color-fd-card-foreground: #1b2b21;
+  --color-fd-popover-foreground: #1b2b21;
+  --color-fd-border: #e2dcca;
+  --color-fd-primary: #336443;
+  --color-fd-primary-foreground: #f7f4ec;
+  --color-fd-secondary: #eae5d6;
+  --color-fd-secondary-foreground: #1b2b21;
+  --color-fd-accent: #e8e3d3;
+  --color-fd-accent-foreground: #1b2b21;
+  --color-fd-ring: #336443;
+}
+
+.dark {
+  --pb-accent: #8fb795;
+  --pb-accent-2: #d4b171;
+
+  --color-fd-background: #0d1712;
+  --color-fd-foreground: #edf2ec;
+  --color-fd-muted: #131f19;
+  --color-fd-muted-foreground: #91a897;
+  --color-fd-popover: #101a15;
+  --color-fd-card: #121e18;
+  --color-fd-card-foreground: #edf2ec;
