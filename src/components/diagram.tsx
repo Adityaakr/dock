@@ -206,3 +206,29 @@ function ProNode({
   y,
   fid,
   icon,
+  label,
+  label2,
+  sub,
+}: {
+  x: number;
+  y: number;
+  fid: string;
+  icon: ReactNode;
+  label: string;
+  label2?: string;
+  sub?: string;
+}) {
+  const labelY = y + 52;
+  return (
+    <g>
+      <circle cx={x} cy={y} r={30} className="p-node" filter={`url(#${fid}-sh)`} />
+      <ellipse cx={x} cy={y - 12} rx={22} ry={12} className="p-node-hi" />
+      <g transform={`translate(${x} ${y})`}>{icon}</g>
+      <text x={x} y={labelY} textAnchor="middle" fontSize="13.5" className="p-t">
+        {label}
+      </text>
+      {label2 ? (
+        <text x={x} y={labelY + 17} textAnchor="middle" fontSize="13.5" className="p-t">
+          {label2}
+        </text>
+      ) : null}
