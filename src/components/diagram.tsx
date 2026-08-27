@@ -258,3 +258,29 @@ function ProPill({
   w: number;
   text: string;
 }) {
+  return (
+    <g>
+      <rect x={x - w / 2} y={y - 10} width={w} height={20} rx={10} className="p-pill" />
+      <text x={x} y={y + 3.5} textAnchor="middle" className="p-pill-t">
+        {text}
+      </text>
+    </g>
+  );
+}
+
+function ProChipRow({
+  cx,
+  y,
+  chips,
+}: {
+  cx: number;
+  y: number;
+  chips: { t: string; w: number }[];
+}) {
+  const total = chips.reduce((s, c) => s + c.w, 0) + (chips.length - 1) * 10;
+  let x = cx - total / 2;
+  return (
+    <g>
+      {chips.map((c) => {
+        const cxx = x;
+        x += c.w + 10;
