@@ -180,3 +180,29 @@ function IconRadar() {
         <path d="M 0 0 L 8 -8" />
       </g>
       <circle cx={8} cy={-8} r={2} className="p-node-ic-fill" />
+    </g>
+  );
+}
+
+function IconSliders() {
+  return (
+    <g>
+      <g className="p-node-ic">
+        <path d="M -11 -6 h 22 M -11 0 h 22 M -11 6 h 22" />
+      </g>
+      <g className="p-node-ic-fill">
+        <circle cx={-4} cy={-6} r={2.6} />
+        <circle cx={5} cy={0} r={2.6} />
+        <circle cx={-1} cy={6} r={2.6} />
+      </g>
+    </g>
+  );
+}
+
+/* Building blocks */
+
+function ProNode({
+  x,
+  y,
+  fid,
+  icon,
