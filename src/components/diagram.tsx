@@ -336,3 +336,29 @@ export function ConvictionSpread() {
       </text>
 
       {SPREAD.map((m, i) => (
+        <g key={m}>
+          <path
+            d={`M 188 168 C 350 168, 390 ${rowY(i) + 18}, 552 ${rowY(i) + 18}`}
+            className="p-line"
+            markerEnd={`url(#${fid}-ah)`}
+          />
+          <rect x={560} y={rowY(i)} width={310} height={36} rx={8} className="p-box" />
+          <text x={578} y={rowY(i) + 23} fontSize="13" className="p-t">
+            {m}
+          </text>
+        </g>
+      ))}
+
+      <text x={20} y={356} fontSize="12" className="p-sub">
+        each market answers one question; none of them answers yours
+      </text>
+    </ProFigure>
+  );
+}
+
+/* ── A basket, weighted ─────────────────────────────────────────── */
+
+const BASKET = [
+  { name: 'AI Adoption', w: 30 },
+  { name: 'Semiconductors', w: 25 },
+  { name: 'Data Centers', w: 20 },
