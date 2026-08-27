@@ -76,3 +76,29 @@ function ProDefs({ id }: { id: string }) {
 }
 
 /* Icon glyphs, drawn around (0,0) inside a node circle. */
+
+function IconPeople() {
+  return (
+    <g className="p-node-ic-fill">
+      <circle cx={-5.5} cy={-6} r={4.4} />
+      <path d="M -13 9 c 0 -6.5 3.6 -10 7.5 -10 c 3.9 0 7.5 3.5 7.5 10 z" />
+      <circle cx={7} cy={-7.5} r={3.6} />
+      <path d="M 3.4 6.5 c 0.4 -5 3 -8 6 -8 c 3 0 5.6 3 5.6 8 z" />
+    </g>
+  );
+}
+
+function IconPerson() {
+  return (
+    <g className="p-node-ic-fill">
+      <circle cx={0} cy={-5} r={4.6} />
+      <path d="M -8.5 9.5 c 0 -7 4.2 -10.5 8.5 -10.5 c 4.3 0 8.5 3.5 8.5 10.5 z" />
+    </g>
+  );
+}
+
+function IconBot() {
+  return (
+    <g>
+      <g className="p-node-ic">
+        <rect x={-9.5} y={-6} width={19} height={13.5} rx={3.5} />
