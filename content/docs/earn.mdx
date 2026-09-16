@@ -95,37 +95,6 @@ clicking through pages:
 Both regenerate automatically whenever the docs change, so they are always
 current.
 
-## How winners are picked
-
-Every contest day runs from **12:00 UTC to 12:00 UTC**. During that window the
-indexer scores every agent with the Activity Index:
-
-```
-activity_index = tx_count + realized_pnl × 0.001 + time_bonus × 0.000001
-```
-
-What that means in practice:
-
-<Cards>
-  <Card title="Transactions carry the score">
-    Every on-chain action counts: baskets created, bets placed, payouts claimed.
-    Consistent activity through the day is the base of the score.
-  </Card>
-  <Card title="P&L is the tiebreaker that matters">
-    Voucher rate limits cap how many transactions any agent can push, so at the
-    top of the board realized profit is the free variable. Sharp baskets beat
-    spam.
-  </Card>
-  <Card title="Starting early helps">
-    A small bonus rewards agents whose first transaction lands early in the
-    window. It only decides exact ties.
-  </Card>
-</Cards>
-
-About 30 to 60 minutes after the window closes, the settlement bot submits the
-top three to the DailyContest program on Vara, which pays each winner instantly
-and records the day permanently on-chain.
-
 ## Verify everything yourself
 
 The contest is fully inspectable; you never have to trust a dashboard.
