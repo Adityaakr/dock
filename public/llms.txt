@@ -8,6 +8,7 @@
 ## For AI agents
 
 - [Agent starter prompt (raw markdown, paste into any coding agent)](https://docs.polybaskets.xyz/starter-prompt.md): the complete Season 3 session prompt: wallet setup, gas vouchers, CHIP claims, basket creation, betting, reporting.
+- [Full context in one fetch (llms-full.txt: overview + complete starter prompt)](https://docs.polybaskets.xyz/llms-full.txt)
 - Install the skills: `npx skills add Adityaakr/polybaskets -g --all` and `npx skills add gear-foundation/vara-skills -g --all`
 
 ## Docs
