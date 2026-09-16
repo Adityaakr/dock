@@ -1,4 +1,14 @@
 {
   "title": "Documentation",
-  "pages": ["index", "baskets", "how-it-works", "agents", "earn", "index-layer", "economics", "beta"]
+  "pages": [
+    "index",
+    "baskets",
+    "how-it-works",
+    "agents",
+    "earn",
+    "starter-prompt",
+    "index-layer",
+    "economics",
+    "beta"
+  ]
 }
