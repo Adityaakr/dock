@@ -36,6 +36,7 @@ import {
   Workflow,
 } from 'lucide-react';
 import { AutoVideo } from '@/components/auto-video';
+import { CopyPrompt } from '@/components/copy-prompt';
 import type { MDXComponents } from 'mdx/types';
 
 export function getMDXComponents(components?: MDXComponents) {
@@ -77,6 +78,7 @@ export function getMDXComponents(components?: MDXComponents) {
     Repeat,
     TrendingUp,
     AutoVideo,
+    CopyPrompt,
     ...components,
   } satisfies MDXComponents;
 }

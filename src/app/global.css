@@ -173,3 +173,11 @@ html > body[data-scroll-locked] {
   stroke: var(--color-fd-border);
   stroke-width: 1.4;
 }
+
+/* Long prompt blocks: wrap instead of clipping so nothing is hidden
+   off-screen and a manual select-all copies every line. */
+.prompt-block pre,
+.prompt-block pre code {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
