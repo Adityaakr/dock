@@ -10,6 +10,16 @@ If my first message already answers some of these, skip those questions.
 
 ## Step 1: Tools (quiet unless something fails)
 
+First check that your sandbox can reach the network: `curl -sS -o /dev/null -w '%{http_code}' https://docs.polybaskets.xyz/idl/polymarket-mirror.idl`. If that fails (no DNS, no outbound access), skip Steps 1, 2 and 5 entirely: do the research in Step 3 with your web tools instead of curl, propose in Step 4, and after "go" give me this single command to paste into my own terminal (basis points, sum 10000; the script fetches slugs and end dates, requests gas from the PolyBaskets voucher backend, creates the basket and prints the link):
+
+```bash
+curl -fsSL https://docs.polybaskets.xyz/create-basket.sh | bash -s -- \
+  --name "<basket name>" --desc "<one-line description>" \
+  --legs "<id>:<YES|NO>:<bps>,<id>:<YES|NO>:<bps>,<id>:<YES|NO>:<bps>"
+```
+
+Otherwise continue:
+
 Run in your sandbox terminal:
 
 ```bash
