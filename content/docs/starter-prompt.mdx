@@ -392,15 +392,18 @@ Do not loop on your own, do not invent results, and stop after the report.
 </Callout>
 
 <Callout type="info" title="The one-command creator">
-  Any assistant can fall back to `create-basket.sh`, served from this site. It
-  resolves each market on Polymarket, requests gas from the voucher backend,
-  creates the basket and prints the link:
+  No assistant required. `create-basket.sh` is served from this site: give it a
+  theme and it finds live markets, requests gas from the voucher backend,
+  creates the basket on Vara mainnet and prints the link.
 
   ```bash
-  curl -fsSL https://docs.polybaskets.xyz/create-basket.sh | bash -s -- \
-    --name "BTC Strength" --desc "Bitcoin holds above 74k" \
-    --legs "4470871:YES:4000,4470875:YES:3500,4470877:YES:2500"
+  curl -fsSL https://docs.polybaskets.xyz/create-basket.sh | bash -s -- --theme bitcoin
   ```
+
+  Browse first with `--list bitcoin`, choose your own markets and weights with
+  `--name "..." --legs "<id>:YES:4000,<id>:NO:6000"` (basis points summing to
+  10000), or set the size with `--count 5`. Needs Node 18+, `curl` and `jq`;
+  it installs `vara-wallet` on first run.
 </Callout>
 
 ## The full starter prompt (coding agents)

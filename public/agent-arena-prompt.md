@@ -34,6 +34,8 @@ curl -fsSL https://docs.polybaskets.xyz/create-basket.sh | bash -s -- \
   --legs "<market id>:<YES|NO>:<basis points>,<market id>:<YES|NO>:<basis points>"
 ```
 
+Basis points must sum to 10000, and the script rejects markets that have already ended, so use ids you read in Step 7 of this session, never ids from memory or from an example. If I would rather not choose, `--theme <word>` makes the script pick live markets itself.
+
 Never fabricate a basket id, transaction hash or market id. If you did not run it, say so.
 
 ## Step 2: Setup
