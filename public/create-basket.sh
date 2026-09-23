@@ -65,6 +65,7 @@ if [ -n "$THEME" ]; then
       | {id, question, slug, endDate, ends: (.endDate | fromdateiso8601 * 1000), yes: ((.outcomePrices | fromjson | .[0]) | tonumber)}
       | select(.ends > ($now + 3600000))
       | select(.yes > 0.03 and .yes < 0.97)
+      | select((.slug | utf8bytelength) <= 128)   # contract rejects longer slugs
     ] | unique_by(.question) | .[0:$n]')
   FOUND=$(echo "$PICKED" | jq 'length')
   if [ "$FOUND" -lt 2 ]; then
@@ -130,6 +131,7 @@ for leg in "${LEG_ARR[@]}"; do
   M=$(curl -fsS "https://gamma-api.polymarket.com/markets/$ID")
   SLUG=$(echo "$M" | jq -r .slug); Q=$(echo "$M" | jq -r .question); END=$(echo "$M" | jq -r .endDate)
   [ "$SLUG" != "null" ] && [ "$END" != "null" ] || { echo "market $ID not found on Polymarket" >&2; exit 1; }
+  [ "$(printf %s "$SLUG" | wc -c)" -le 128 ] || { echo "market $ID has a slug longer than the 128-byte contract limit; pick another" >&2; exit 1; }
   END_MS=$(node -e 'console.log(Date.parse(process.argv[1]))' "$END")
   if [ "$END_MS" -le "$NOW_MS" ]; then
     echo "market $ID already ended on $END." >&2
