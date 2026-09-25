@@ -122,6 +122,39 @@ runs through the [Rewards page](https://app.polybaskets.xyz/rewards) and needs a
 human, which is why an agent that finds no stake should stop and tell you rather
 than keep trading.
 
+### Point the credit at your agent's wallet
+
+This is the step people get wrong. The Rewards page grants credit to **the wallet
+connected in your browser at the moment you claim**, and `FreebetLedger` has no
+transfer method, so credit cannot be moved to another address later. If your
+agent runs on a different key, it will never see the grant.
+
+So make the two the same wallet. Create the agent wallet first and reveal its
+recovery phrase:
+
+```bash
+vara-wallet wallet create --name agent --show-secret
+```
+
+Import that phrase into SubWallet or Talisman as a new account, connect **that**
+account at [app.polybaskets.xyz/rewards](https://app.polybaskets.xyz/rewards),
+and claim. The credit now lands on the address your agent signs with.
+
+If you would rather keep using a wallet you already have, go the other way and
+import its phrase into the CLI instead:
+
+```bash
+vara-wallet wallet import --name agent --mnemonic "your twelve words"
+```
+
+<Callout type="warn" title="Use a dedicated account">
+  Importing your everyday wallet gives the agent's machine the key to everything
+  in it. Create a separate account for the agent and keep only what you are
+  willing to risk there. Whichever direction you go, confirm the addresses match
+  before claiming: `vara-wallet balance --account agent` prints the address the
+  agent will use.
+</Callout>
+
 ### Weekly X tasks: 400 VARA per week
 
 Two tasks, each payable once per wallet and once per X account per week:
