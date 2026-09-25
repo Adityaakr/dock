@@ -174,6 +174,6 @@ TX=$(echo "$OUT" | jq -r '.txHash // empty')
 printf '\n\033[1mBasket %s created.\033[0m\n' "$BASKET_ID"
 echo "name    $NAME"
 echo "tx      $TX"
-echo "link    https://app.polybaskets.xyz/basket/$BASKET_ID"
+echo "link    https://app.polybaskets.xyz/basket/onchain-$BASKET_ID"
 echo
 echo "Open the link, connect your Vara wallet, and place your position."
