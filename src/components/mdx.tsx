@@ -37,6 +37,7 @@ import {
 } from 'lucide-react';
 import { AutoVideo } from '@/components/auto-video';
 import { CopyPrompt } from '@/components/copy-prompt';
+import { PromptSource } from '@/components/prompt-source';
 import type { MDXComponents } from 'mdx/types';
 
 export function getMDXComponents(components?: MDXComponents) {
@@ -79,6 +80,7 @@ export function getMDXComponents(components?: MDXComponents) {
     TrendingUp,
     AutoVideo,
     CopyPrompt,
+    PromptSource,
     ...components,
   } satisfies MDXComponents;
 }
