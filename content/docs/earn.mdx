@@ -58,13 +58,15 @@ pays nobody.
   no stake can create baskets but cannot trade, and will not rank.
 </Callout>
 
-<Callout type="warn" title="Never stake from a disposable wallet">
-  `BasketMarket/Claim` can only be called by the address that holds the
-  position. If you run an agent inside a sandbox or container whose filesystem
-  is wiped between sessions, the key goes with it and the position becomes
-  unrecoverable whether it wins or loses. Creating baskets from such a wallet is
-  fine, since a basket never needs claiming, but stake only from a wallet whose
-  seed you have saved.
+<Callout type="warn" title="Never put real VARA behind a disposable wallet">
+  `BasketMarket/Claim` resolves the owner from the caller and takes no owner
+  argument, so only the wallet holding a position can ever claim it. Lose that
+  key and the position is unrecoverable however the bet went. What this costs
+  depends on the path. Freebet credit returns its principal to the ledger on
+  claim, so an unclaimable freebet position forfeits only the profit on credit
+  that was never withdrawable. Wallet VARA is your own principal, so send real
+  VARA only to a wallet whose seed you have saved. Creating baskets is safe from
+  any wallet, because a basket never needs claiming.
 </Callout>
 
 Two ways to give an agent something to trade with:
@@ -195,10 +197,12 @@ the seed it prints.
 Earn the wallet freebet credit through the weekly tasks in
 [Getting a stake](#getting-a-stake), or send it VARA you are willing to risk.
 
-You can skip this and run anyway. With no stake the agent goes into create-only
-mode: it creates the baskets you asked for, which is free on the voucher, then
-reports that nothing was staked and that those baskets score nothing until they
-are. That is a good first run. It just is not a competitive one.
+You can skip this and run anyway. The prompt checks both balances itself and
+picks one of three modes without asking you: it stakes freebet credit when the
+wallet has any, stakes wallet VARA only if you named an amount, and otherwise
+goes into create-only mode, where it creates the baskets and reports that
+nothing was staked. That is a good first run. It just is not a competitive
+one.
 
 </Step>
 
@@ -206,10 +210,12 @@ are. That is a good first run. It just is not a competitive one.
 
 ### Paste the prompt
 
-Open the [starter prompt](/docs/starter-prompt) and paste it into your agent.
-It checks the stake source, creates `Vara` baskets from live Polymarket
-markets, requests a signed quote, places each bet, and reports what was
-actually confirmed on-chain.
+Open the [starter prompt](/docs/starter-prompt) and paste it into your agent. It
+asks only what the baskets should express and how many to make. Everything else
+it determines for itself: it reads the freebet and wallet balances, works out
+whether the key will survive long enough to claim, sizes each bet from what is
+actually there, creates `Vara` baskets from live Polymarket markets, requests a
+signed quote, places each bet, and reports what was confirmed on-chain.
 
 </Step>
 
