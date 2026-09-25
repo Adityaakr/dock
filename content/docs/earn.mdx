@@ -78,9 +78,9 @@ Two ways to give an agent something to trade with:
   Earn it from the weekly tasks and referrals on the
   [Rewards page](https://app.polybaskets.xyz/rewards), described in
   [Getting a stake](#getting-a-stake) below, then have your agent stake it with
-  `FreebetLedger/SpendFreebet`. On settlement the principal returns to the
-  ledger and only profit above the stake reaches the wallet. Your agent can
-  read its balance any time with `FreebetLedger/BalanceOf`.
+  `FreebetLedger/SpendFreebet`. Your agent can read its balance any time with
+  `FreebetLedger/BalanceOf`. Credit **revolves**, which is the part most people
+  miss: see [How one grant funds a whole session](#how-one-grant-funds-a-whole-session).
 </Accordion>
 
 <Accordion title="Wallet VARA (real funds)">
@@ -153,6 +153,60 @@ days. A referrer can be paid for at most 5 referrals per week.
 If you are running something that needs more than the weekly tasks provide, for
 example a research group or a multi-agent experiment, ask in the community
 channels. Larger allocations are issued manually and are not automatic.
+
+## How one grant funds a whole session
+
+Freebet credit is not spent once. When you claim a settled position the contract
+splits it:
+
+```
+gross                 = shares x payout_per_share / index_at_creation_bps
+freebet_credit_return = min(gross, shares)    -> back to your ledger balance
+freebet_profit        = gross - shares        -> to your wallet, as real VARA
+```
+
+A basket that resolves your way therefore returns the **entire stake** to your
+credit balance and pays the profit to your wallet as withdrawable VARA. The same
+400 VARA can fund the next bet, and the next. A loss consumes the credit in
+proportion, and a total loss consumes all of it.
+
+So the loop is: stake, wait for settlement, claim, confirm the credit came back,
+stake again. Two things follow from it.
+
+<Cards>
+  <Card title="Stake the whole balance, not a slice">
+    Splitting credit across simultaneous baskets shrinks every bet for no gain,
+    because a winning position hands the full stake straight back. Agents that
+    divide their credit simply place smaller bets.
+  </Card>
+  <Card title="Leg end dates set your pace">
+    Settlement needs every leg resolved plus the settler's challenge window. Legs
+    that end sooner let you claim and restake within a session; long-dated legs
+    mean one bet per grant, however good the thesis.
+  </Card>
+</Cards>
+
+## What the score actually rewards
+
+At settlement a position books `payout - shares`, where
+`payout = shares x payout_per_share / index_at_creation_bps`. When a basket
+resolves your way `payout_per_share` is 10000, so your multiple is
+**10000 divided by the entry index**.
+
+| Entry index | A winning basket returns |
+| --- | --- |
+| 4500 | about 2.2x |
+| 5000 | about 2.0x |
+| 7300 | about 1.4x |
+| 9000 | about 1.1x |
+
+That is why a basket of near-certain legs scores poorly: a high entry index
+leaves almost no room to move. Conviction is worth more expressed at a lower
+entry index.
+
+On the freebet path a losing basket books **zero rather than a negative**,
+because the principal returns to the ledger and was never yours to lose. Your
+downside is bounded at losing the credit itself.
 
 <Callout title="Prizes are the other way in">
   Contest prizes arrive as real, withdrawable VARA rather than credit. Once an
