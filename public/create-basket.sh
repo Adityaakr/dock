@@ -38,8 +38,7 @@ case "$COUNT" in ''|*[!0-9]*) echo "--count must be a number" >&2; exit 2 ;; esa
 [ "$COUNT" -ge 2 ] && [ "$COUNT" -le 8 ] || { echo "--count must be between 2 and 8" >&2; exit 2; }
 
 BASKET_MARKET="0xa749ccd80d71637b450789e12e3d94524e9ae17877d1b59f5ddda784f89a2cba"
-BET_TOKEN="0x186f6cda18fea13d9fc5969eec5a379220d6726f64c1d5f4b346e89271f917bc"
-BET_LANE="0x35848dea0ab64f283497deaff93b12fe4d17649624b2cd5149f253ef372b29dc"
+FREEBET_LEDGER="0x2bb74834402fb7da9144d2ab91c1570e97237ad0ead1f7feb392162c3e3ad64e"
 VOUCHER_URL="https://voucher-backend-production-5a1b.up.railway.app/voucher"
 IDL_URL="https://docs.polybaskets.xyz/idl/polymarket-mirror.idl"
 
@@ -103,7 +102,7 @@ STATE=$(curl -fsS "$VOUCHER_URL/$MY_ADDR")
 VOUCHER_ID=$(echo "$STATE" | jq -r .voucherId)
 if [ "$VOUCHER_ID" = "null" ]; then
   RESP=$(curl -sS -w '\n%{http_code}' -X POST "$VOUCHER_URL" -H 'Content-Type: application/json' \
-    -d "{\"account\":\"$MY_ADDR\",\"programs\":[\"$BASKET_MARKET\",\"$BET_TOKEN\",\"$BET_LANE\"]}")
+    -d "{\"account\":\"$MY_ADDR\",\"programs\":[\"$BASKET_MARKET\",\"$FREEBET_LEDGER\"]}")
   CODE=$(echo "$RESP" | tail -n1); BODY=$(echo "$RESP" | sed '$d')
   case "$CODE" in
     200|201) VOUCHER_ID=$(echo "$BODY" | jq -r .voucherId) ;;
@@ -111,7 +110,12 @@ if [ "$VOUCHER_ID" = "null" ]; then
     *) echo "voucher request failed: HTTP $CODE $BODY" >&2; exit 1 ;;
   esac
 fi
-[ -n "$VOUCHER_ID" ] && [ "$VOUCHER_ID" != "null" ] || { echo "no voucher available" >&2; exit 1; }
+if [ -z "$VOUCHER_ID" ] || [ "$VOUCHER_ID" = "null" ]; then
+  echo "No gas voucher available for this wallet yet." >&2
+  echo "The voucher backend allows one funded request per wallet per hour (and caps requests per IP)." >&2
+  echo "Wait a few minutes and rerun, or use --wallet <other-name> for a different address." >&2
+  exit 1
+fi
 echo "voucher $VOUCHER_ID"
 
 step "Contract interface"
@@ -153,7 +157,16 @@ echo "$KIND"
 
 step "Creating basket on Vara mainnet"
 ARGS=$(jq -cn --arg n "$NAME" --arg d "$DESC" --argjson items "$ITEMS" --arg k "$KIND" '[$n, $d, $items, $k]')
-OUT=$(vara-wallet --account "$WALLET" call "$BASKET_MARKET" BasketMarket/CreateBasket --voucher "$VOUCHER_ID" --idl "$IDL" --args "$ARGS")
+# Estimate gas explicitly: the default can fall short on baskets with longer
+# slugs, surfacing as "Message ran out of gas while executing".
+EST=$(vara-wallet --account "$WALLET" call "$BASKET_MARKET" BasketMarket/CreateBasket \
+  --voucher "$VOUCHER_ID" --idl "$IDL" --args "$ARGS" --estimate 2>/dev/null || true)
+GAS_LIMIT=$(node -e 'try{const x=JSON.parse(process.argv[1]);const u=BigInt(x.min_limit??x.minLimit??x.gas_for_reply??x.gasForReply??0);if(u>0n)console.log((u+u/5n+5000000000n).toString());}catch(e){}' "$EST" 2>/dev/null)
+if [ -n "$GAS_LIMIT" ]; then
+  OUT=$(vara-wallet --account "$WALLET" call "$BASKET_MARKET" BasketMarket/CreateBasket --voucher "$VOUCHER_ID" --idl "$IDL" --gas-limit "$GAS_LIMIT" --args "$ARGS")
+else
+  OUT=$(vara-wallet --account "$WALLET" call "$BASKET_MARKET" BasketMarket/CreateBasket --voucher "$VOUCHER_ID" --idl "$IDL" --args "$ARGS")
+fi
 BASKET_ID=$(echo "$OUT" | jq -r '.result // empty')
 TX=$(echo "$OUT" | jq -r '.txHash // empty')
 [ -n "$BASKET_ID" ] || { echo "creation failed:" >&2; echo "$OUT" >&2; exit 1; }
